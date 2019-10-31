@@ -1,5 +1,6 @@
 package init;
 
+import Utils.Upload;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,6 +24,8 @@ public class Main {
         Spark.init();
         //Publicacion de Apis/Servicios
         post("/upload", (req, res) -> {
+            Upload up = new Upload();
+            up.uploadFile(req, res);
             return "Alert";
         });
     }
